@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-beige: #F5F0E8;
+  --color-beige-dark: #E8E0D4;
+  --color-green: #5C7C5E;
+  --color-green-light: #7A9E7E;
+  --color-green-dark: #4A6A4C;
+  --color-charcoal: #2D2D2D;
+  --color-muted: #D4CFC4;
+  --color-muted-dark: #A8A095;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-beige);
+  color: var(--color-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-beige-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-green);
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-green-light);
+  color: white;
+}
+
+/* Thin scrollbar for nested scroll areas */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--color-green-light);
+}
+
+/* Hide default cursor for F1 car cursor */
+*, *::before, *::after {
+  cursor: none !important;
+}
