@@ -58,7 +58,7 @@ export const experiences = [
 
 export const skills = {
   languages: ["Python", , "C/C++", "MATLAB", "SQL"],
-  frameworks: ["PyTorch", "TensorFlow", "LangGraph", "Scikit-learn"],
+  frameworks: ["PyTorch", "TensorFlow", "LangGraph", "Scikit-learn", "NumPy", "Pandas"],
   tools: ["Git", "Google Cloud", "AWS", "PostgreSQL", "Isaac Sim", "Blender", "Figma"],
 };
 
