@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { navLinks } from '../../data/content';
+import TypewriterText from '../TypewriterText';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,8 +27,8 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#hero" className="text-xl font-semibold text-charcoal hover:text-green transition-colors">
-            Portfolio
+          <a href="#hero" className="text-xl font-semibold text-charcoal hover:text-green transition-colors cursor-none">
+            <TypewriterText />
           </a>
 
           {/* Desktop Menu */}
@@ -36,7 +37,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-charcoal/70 hover:text-green transition-colors text-sm font-medium"
+                  className="text-charcoal/70 hover:text-green transition-colors text-sm font-medium cursor-none"
                 >
                   {link.label}
                 </a>
@@ -47,7 +48,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-charcoal hover:text-green transition-colors"
+            className="md:hidden p-2 text-charcoal hover:text-green transition-colors cursor-none"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -65,7 +66,7 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-charcoal/70 hover:text-green transition-colors text-sm font-medium"
+                  className="text-charcoal/70 hover:text-green transition-colors text-sm font-medium cursor-none"
                 >
                   {link.label}
                 </a>
