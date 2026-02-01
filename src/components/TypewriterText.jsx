@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 
 const greetings = [
   'Welcome!',
-  'Hi!',
-  'Hello!',
+  'Hi there!',
+  'Hello there!',
   'Hey!',
   'Howdy!',
   'Mingalaba!',
@@ -16,10 +16,13 @@ const greetings = [
   "Summer or Winter?",
 ];
 
+const COOLDOWN = 5;
+
 export default function TypewriterText({ className = '' }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const [recentIndices, setRecentIndices] = useState([0]);
 
   useEffect(() => {
     const currentWord = greetings[currentIndex];
@@ -38,21 +41,20 @@ export default function TypewriterText({ className = '' }) {
         if (displayText.length > 0) {
           setDisplayText(displayText.slice(0, -1));
         } else {
-          // Move to random next word (avoiding repeat)
+          // Move to random next word (with 5-word cooldown)
           setIsDeleting(false);
-          setCurrentIndex((prev) => {
-            let next;
-            do {
-              next = Math.floor(Math.random() * greetings.length);
-            } while (next === prev && greetings.length > 1);
-            return next;
-          });
+          const available = greetings
+            .map((_, i) => i)
+            .filter((i) => !recentIndices.includes(i));
+          const next = available[Math.floor(Math.random() * available.length)];
+          setCurrentIndex(next);
+          setRecentIndices((prev) => [...prev.slice(-(COOLDOWN - 1)), next]);
         }
       }
     }, isDeleting ? 50 : 80);
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, currentIndex]);
+  }, [displayText, isDeleting, currentIndex, recentIndices]);
 
   return (
     <span className={className}>
