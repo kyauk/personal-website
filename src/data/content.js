@@ -67,8 +67,8 @@ export const aboutMe = {
   education: "B.S. Computer Science (AI Track) @ Stanford University",
   shortBio: "Passionate about advancing physical and embodied intelligence in pursuit of accelerating our understanding of the world + improve human health and safety globally.",
   currently: [
-    "Learning and building with agents, world models, and VLAs",
-    "Building an agentic data refinery for Physical AI"
+    "Learning and building with agents, diffusion, world models, and VLAs",
+    "Building an agentic data refinery for Physical AI",
   ],
   interests: [
     "Robotics",
@@ -80,6 +80,7 @@ export const aboutMe = {
   ],
   learning: [
     "VLAs",
+    "Diffusion",
     "World Models",
     "Building industrial grade platforms",
     "Computer Vision Methods"
