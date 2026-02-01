@@ -12,7 +12,6 @@ const greetings = [
   "How's the coffee?",
   "What's for lunch?",
   "What's next?",
-  "How do we push the frontier?",
   "Summer or Winter?",
 ];
 
